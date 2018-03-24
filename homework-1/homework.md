@@ -99,5 +99,51 @@ Scale 缩放比例(1为原始大小)
 ### 三者的关系(UML图)
 <img src="new.jpg" />
 
+## 技术
+
+### 查找对象
+
+1.通过对象名称（Find方法）
+```
+var tar = GameObject.Find("/name");
+// 也可以是一个路径
+```
+2.通过标签获取单个游戏对象（FindWithTag方法）
+```
+var tar = GameObject.FindWithTag("tag");
+// 返回一个对象
+```
+3.通过标签获取多个游戏对象（FindGameObjectsWithTags方法）
+```
+var tar = GameObject.FindGameObjectsWithTag("tag");
+// 返回一个对象列表
+```
+4.通过类型获取单个游戏对象（FindObjectOfType方法）
+```
+var tar = GameObject.FindObjectOfType("type");
+// 返回一个对象
+```
+5.通过类型获取多个游戏对象（FindObjectsOfType方法）
+```
+var tar = GameObject.FindObjectsOfType("type");
+// 返回一个对象列表
+```
+
+### 添加子对象
+(parent属性)
+### 遍历对象树
+### 清除所有子对象
+
+## 资源预设(Prefabs)与 对象克隆(clone)
+
+### 预设的好处
+### 预设和克隆的关系
+### 预制资源实例化示例
+
+## 组合模式(Composite Pattern / 一种设计模式)
+
+## 使用BroadcastMessage()方法向子对象发送消息
+
+
 
 
