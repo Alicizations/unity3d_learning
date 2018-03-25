@@ -1099,4 +1099,84 @@ Scale 缩放比例(1为原始大小)</p>
 <h4 id="table_1"><a name="user-content-table_1" href="#table_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>table的部件</h4>
 <p>有 transform, Mesh Filter, Box Collider, Mesh Renderer和Default-Material</p>
 <h3 id="uml"><a name="user-content-uml" href="#uml" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>三者的关系(UML图)</h3>
-<p><img src="///F://study/unity3d%E6%B8%B8%E6%88%8F/%E4%BD%9C%E4%B8%9A/homework-1/new.jpg" /></p></article></body></html>
+<p><img src="///F://study/unity3d/unityd_learning/homework-1/new.jpg" /></p>
+<h2 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>技术</h2>
+<h3 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>查找对象</h3>
+<p>1.通过对象名称（Find方法）<br />
+<pre><code>var tar = GameObject.Find(&quot;/name&quot;);
+// 也可以是一个路径
+</code></pre><br />
+2.通过标签获取单个游戏对象（FindWithTag方法）<br />
+<pre><code>var tar = GameObject.FindWithTag(&quot;tag&quot;);
+// 返回一个对象
+</code></pre><br />
+3.通过标签获取多个游戏对象（FindGameObjectsWithTags方法）<br />
+<pre><code>var tar = GameObject.FindGameObjectsWithTag(&quot;tag&quot;);
+// 返回一个对象列表
+</code></pre><br />
+4.通过类型获取单个游戏对象（FindObjectOfType方法）<br />
+<pre><code>var tar = GameObject.FindObjectOfType(&quot;type&quot;);
+// 返回一个对象
+</code></pre><br />
+5.通过类型获取多个游戏对象（FindObjectsOfType方法）<br />
+<pre><code>var tar = GameObject.FindObjectsOfType(&quot;type&quot;);
+// 返回一个对象列表
+</code></pre></p>
+<h3 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>添加子对象</h3>
+<pre><code>// 先新建一个对象
+GameObject child = new GameObject ();
+// 然后将该对象的parent属性赋一个作为父对象的值
+child.transform.parent = p.transform;
+</code></pre>
+
+<h3 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>遍历对象树</h3>
+<p>可以使用Component.GetComponentsInChildren方法.<br />
+<pre><code>// 获取children中transform组件, 也就相当于获取到了children的对象
+Transform[] gp = GetComponentsInChildren&lt;Transform&gt;();
+
+foreach (Transform child in grandFa)  
+{  
+    // 遍历
+}
+</code></pre><br />
+或者<br />
+<pre><code>for (int i = 0; i &lt; transform.childCount; i++) {  
+    // transform.GetChild(i).gameObject 这个便是子对象 
+} 
+</code></pre></p>
+<h3 id="_10"><a name="user-content-_10" href="#_10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>清除所有子对象</h3>
+<p>根据上面的遍历, 结合destroy方法<br />
+<pre><code>for (int i = 0; i &lt; transform.childCount; i++) {  
+    Destroy(transform.GetChild(i).gameObject); 
+} 
+</code></pre></p>
+<h2 id="prefabs-clone"><a name="user-content-prefabs-clone" href="#prefabs-clone" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>资源预设(Prefabs)与 对象克隆(clone)</h2>
+<h3 id="_11"><a name="user-content-_11" href="#_11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>预设的好处</h3>
+<p>使得(预设)游戏对象可以多处重复使用, 提高开发效率.<br />
+一处改变, 使用预设的全部都会改变.</p>
+<h3 id="_12"><a name="user-content-_12" href="#_12" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>预设和克隆的关系</h3>
+<p>预设是预先设计的游戏对象<br />
+克隆是复制存在的游戏对象<br />
+实际上, 多处使用预设, 其实例是预设的克隆.</p>
+<h3 id="_13"><a name="user-content-_13" href="#_13" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>预制资源实例化</h3>
+<pre><code>// 代码中实例化预设
+Instantiate(prefab_name, position, Quaternion);
+</code></pre>
+
+<h2 id="composite-pattern"><a name="user-content-composite-pattern" href="#composite-pattern" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>组合模式(Composite Pattern / 一种设计模式)</h2>
+<h3 id="_14"><a name="user-content-_14" href="#_14" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>定义</h3>
+<p>组合多个对象形成树形结构以表示具有部分-整体关系的层次结构。组合模式可以让客户端可以统一的对待单个对象和组合对象。<br />
+而这样设计的好处在于, 一个对根节点的方法, 对叶节点也适用, 增加代码复用性.</p>
+<h2 id="broadcastmessage"><a name="user-content-broadcastmessage" href="#broadcastmessage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>使用BroadcastMessage()方法向子对象发送消息</h2>
+<p>比如删除子对象, 可以用BroadcastMessage()方法.<br />
+<pre><code>    // 广播会从自身开始查找这个DestoryMe方法，查找完自身后会查找所有子物体  
+    BroadcastMessage (&quot;DestoryMe&quot;);
+    // 后面可以携带要调用函数的参数
+</code></pre><br />
+要删除的子对象中:<br />
+<pre><code>// 作为被广播通知的方法，由父物体通知执行  
+public void DestoryMe ()  
+{  
+    Destroy (gameObject);  
+}  
+</code></pre></p></article></body></html>
