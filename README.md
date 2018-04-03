@@ -1,7 +1,7 @@
 # unity3d_learning
 
 ## homework-1
-第一周作业
+tic tac toe
 
 ## homework-2
-第二周作业
+Priests and Devils
