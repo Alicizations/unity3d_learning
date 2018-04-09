@@ -14,6 +14,8 @@ public class FirstController : MonoBehaviour, ISceneController, UserAction {
     public bool IsMoving = false;
     UserGUI userGUI;
 
+    public CCActionManager actionManager;
+
     void Awake()
     {
         Director director = Director.GetInstance();
@@ -40,7 +42,7 @@ public class FirstController : MonoBehaviour, ISceneController, UserAction {
         this.boat.boat.transform.position = boat.fromPosition;
         //this.boat.AddComponent(typeof(BoatController));
         this.boat.boat.AddComponent(typeof(ClickGUI));
-        this.boat.boat.AddComponent(typeof(move));
+        //this.boat.boat.AddComponent(typeof(move));
         loadCharacter();
     }
 

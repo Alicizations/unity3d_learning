@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 280051260}
   - component: {fileID: 280051261}
+  - component: {fileID: 280051262}
   m_Layer: 0
   m_Name: Empty
   m_TagString: Untagged
@@ -154,8 +155,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsWin: 0
-  boat: {fileID: 0}
   IsMoving: 0
+  actionManager: {fileID: 0}
+--- !u!114 &280051262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 280051259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b886c34ad9b7141addcc9f45100717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneController: {fileID: 0}
+  moveToA: {fileID: 0}
+  moveToB: {fileID: 0}
 --- !u!1 &955479877
 GameObject:
   m_ObjectHideFlags: 0
