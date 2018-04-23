@@ -35,8 +35,7 @@ public class FirstController : MonoBehaviour, ISceneController, UserAction {
     // 加载资源
     public void LoadResources()
     {
-        //GameObject water = Instantiate(Resources.Load("Perfabs/Water", typeof(GameObject)), new Vector3(0, 0.5F, 0), Quaternion.identity, null) as GameObject;
-        //water.name = "water";  
+        
     }
 
     public void restart()
