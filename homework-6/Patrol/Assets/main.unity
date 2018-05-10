@@ -434,6 +434,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
+  Jumping: 0
+  CanMove: 1
   m_animator: {fileID: 703226686}
   m_rigidBody: {fileID: 703226687}
   m_jumpForce: 7

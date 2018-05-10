@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour {
 
     public float Speed = 10f;
-    private bool Jumping = false;
+    public bool Jumping = false;
     public bool CanMove = true;
 
     [SerializeField] private Animator m_animator;
@@ -63,9 +63,13 @@ public class PlayerMove : MonoBehaviour {
 
         if (Jumping)
         {
-            Jumping = m_rigidBody.velocity.y == 0 ? true : false;
+            Jumping = this.transform.position.y == 0 ? false : true;
         }
-        
+        else
+        {
+            Jumping = this.transform.position.y > 3 ? true : false;
+        }
+
         if (!Jumping && Input.GetKeyDown(KeyCode.Space))
         {
             //m_jumpTimeStamp = Time.time;

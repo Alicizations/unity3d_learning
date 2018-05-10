@@ -124,7 +124,7 @@ public class FirstController : MonoBehaviour, ISceneController, UserAction {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Player.transform.position.y < -10)
+        if (Player.transform.position.y < -10 || Player.transform.position.y > 13)
         {
             Singleton<GameEventManager>.Instance.PlayerGameover();
         }
